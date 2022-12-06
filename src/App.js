@@ -1,26 +1,10 @@
 import React, { useReducer } from 'react';
+import { initialState, reducer } from './state';
+
 
 const App = () => {
 
-  const initialState = 0;
-
-  const reducer = (state, action) => {
-
-    switch (action.type) {
-      case "INCREMENT":
-        return state + action.payload;
-
-      case "DECREMENT":
-        return state - action.payload;
-
-      default:
-        return state;
-    }
-
-  }
-
-  const [state, dispatch] = useReducer(reducer, initialState);
-
+const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div className='flex h-[100vh] items-center justify-center'>
