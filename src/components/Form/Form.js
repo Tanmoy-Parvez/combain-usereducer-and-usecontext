@@ -1,32 +1,10 @@
 import React, { useReducer } from 'react';
+import { initialState, reducer } from './FormStates';
+
 
 const SubmissionForm = () => {
 
-    const initialState = {
-        name: '',
-        email: '',
-        gender: '',
-        education: '',
-        term: false,
-    };
 
-
-    const reducer = (state, action) => {
-
-        if (action.type === "INPUT") {
-            return {
-                ...state,
-                [action.payload.name]: action.payload.value
-            }
-        }
-        else if (action.type === "TOGGLE") {
-            return {
-                ...state,
-                term: !state.term
-            }
-        }
-
-    }
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -66,7 +44,7 @@ const SubmissionForm = () => {
                             <span className="label-text">Education</span>
                         </label>
 
-                        <select onChange={(e) => dispatch({ type: "INPUT", payload: { name: e.target.name, value: e.target.value } })} className="select select-bordered" name="education">
+                        <select onClick={(e) => dispatch({ type: "INPUT", payload: { name: e.target.name, value: e.target.value } })} className="select select-bordered" name="education">
                             <option>HSC</option>
                             <option>SSC</option>
                         </select>
