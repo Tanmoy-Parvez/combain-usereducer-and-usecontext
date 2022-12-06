@@ -55,7 +55,7 @@ const SubmissionForm = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button disabled={!state.term} className="btn btn-primary">Submit</button>
+                        <button disabled={!state?.term} className="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
